@@ -115,7 +115,7 @@ def main():
   if os.path.exists(outputCsvFile):
     os.remove(outputCsvFile)
   outputFile = open("./covid19_analyzer.csv", "a")
-  outputFile.write("Aggregated State Data for: " + targetState)
+  outputFile.write("Aggregated State Data for: " + targetState + "\n")
   outputFile.write("DATE,CONFIRMED,DEATHS,RECOVERED" + "\n")
 
   # find available dates.
