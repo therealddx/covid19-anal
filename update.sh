@@ -13,7 +13,11 @@ echo 'update.sh: Done pulling GitHub data.'
 # 2: run the analyzer script.
 # 
 echo 'update.sh: Initiating covid19_analyzer...'
-python3 ./covid19_analyzer.py
+
+python3 ./covid19_analyzer.py | \
+  sort --key=1 --field-separator=, --numeric-sort \
+  > ./covid19-analyzer.csv
+
 echo 'update.sh: Done running covid19_analyzer.'
 
 # 

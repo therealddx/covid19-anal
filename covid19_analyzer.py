@@ -111,12 +111,8 @@ def main():
     "../covid19-data/csse_covid_19_data/csse_covid_19_daily_reports/"
 
   # create output file.
-  outputCsvFile = "./covid19_analyzer.csv"
-  if os.path.exists(outputCsvFile):
-    os.remove(outputCsvFile)
-  outputFile = open("./covid19_analyzer.csv", "a")
-  outputFile.write("Aggregated State Data for: " + targetState + "\n")
-  outputFile.write("DATE,CONFIRMED,DEATHS,RECOVERED" + "\n")
+  print("Aggregated State Data for: " + targetState)
+  print("DATE,CONFIRMED,DEATHS,RECOVERED")
 
   # find available dates.
   allDateFiles = []
@@ -134,14 +130,11 @@ def main():
         csvDirectory + eachDateFile)
 
     # output it.
-    outputFile.write(
+    print(
       str(dayDict["DATE"]) + "," +
       str(dayDict["CONFIRMED"]) + "," +
       str(dayDict["DEATHS"]) + "," +
-      str(dayDict["RECOVERED"]) + "\n")
-
-  # close.
-  outputFile.close()
+      str(dayDict["RECOVERED"]))
 
 # 
 # run.
